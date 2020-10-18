@@ -961,6 +961,16 @@
       "sv-SE": "Administratör"
     }
   },
+  "services": {
+    "Values": {
+      "en-US": "Services",
+      "ru-RU": "Администрация",
+      "zh-cn": "管理",
+      "zh-tw": "管理",
+      "pt-BR": "Admin",
+      "sv-SE": "Administratör"
+    }
+  },
   "tag": {
     "Values": {
       "en-US": "Tag|Tags",
