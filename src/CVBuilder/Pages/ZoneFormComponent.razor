@@ -1,0 +1,53 @@
+﻿@page "/creatorelement"
+@using CVBuilder.Model
+@inject IToastService toastService
+
+@if (CurrentZoneObject.IsEditable)
+{
+        <span>
+            <select @bind="CurrentZoneObject.Zone">
+                @foreach (var value in Enum.GetValues(typeof(Zone)).OfType<Zone>().Select(item => item.ToString()))
+                {
+                    <option>@value</option>
+                }
+            </select>
+        </span>
+        <span>
+            <textarea rows="@Rows"
+                      @bind-value="CurrentZoneObject.Value.Content"
+                      @bind-value:event="oninput" />
+        </span>
+        <span>
+            <button @onclick="()=> Save(CurrentZoneObject)">Save</button>
+        </span>
+}
+else
+{
+        <span>@CurrentZoneObject.Zone.ToString()</span>
+        <span>@CurrentZoneObject.Value.Content.ToString()</span>
+        <span>
+            <button @onclick="()=> CurrentZoneObject.Edit()">Edit</button>
+        </span>
+}
+
+@code {
+    [CascadingParameter] public FieldCreator FieldCreator { get; set; }
+
+    [Parameter] public ZoneObject CurrentZoneObject { get; set; }
+
+    int Rows { get; set; }
+
+    private void Save(ZoneObject zoneObject)
+    {
+        zoneObject.Close();
+        var result = FieldCreator.ZoneCollection.AddOrEdit(zoneObject);
+        if (result.Id > 0) toastService.ShowSuccess("Successfully added!");
+        else toastService.ShowError("Error apppend");
+    }
+
+    private void CalculateSize(string value)
+    {
+        Rows = Math.Max(value.Split('\n').Length, value.Split('\r').Length);
+        Rows = Math.Max(Rows, 2);
+    }
+}

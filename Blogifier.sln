@@ -48,6 +48,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{52704327
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blogifier.Core.Tests", "tests\Blogifier.Core.Tests\Blogifier.Core.Tests.csproj", "{021620B9-6BED-44D3-9939-B99EBA65102D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVBuilder", "src\CVBuilder\CVBuilder.csproj", "{D16A4D83-0021-46E0-ADED-1C9C2577DEBC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{021620B9-6BED-44D3-9939-B99EBA65102D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{021620B9-6BED-44D3-9939-B99EBA65102D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{021620B9-6BED-44D3-9939-B99EBA65102D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D16A4D83-0021-46E0-ADED-1C9C2577DEBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D16A4D83-0021-46E0-ADED-1C9C2577DEBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D16A4D83-0021-46E0-ADED-1C9C2577DEBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D16A4D83-0021-46E0-ADED-1C9C2577DEBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +85,7 @@ Global
 		{B5E6D870-731D-4E48-B772-3751EAEBA77E} = {39614650-0D6E-4502-B87D-184366060F59}
 		{F6CCD2AC-B1B1-47E8-A336-E1E4F2E2BE7C} = {39614650-0D6E-4502-B87D-184366060F59}
 		{021620B9-6BED-44D3-9939-B99EBA65102D} = {52704327-6CE3-49EA-8327-00F74663964A}
+		{D16A4D83-0021-46E0-ADED-1C9C2577DEBC} = {39614650-0D6E-4502-B87D-184366060F59}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D601BCCC-A1D9-415B-94B5-B3C0EF4AAF0B}

@@ -1,0 +1,54 @@
+﻿@page "/fieldcreator"
+@using CVBuilder.Model
+@inject IToastService toastService
+
+
+<div class="row bf-row">
+    <div class="col-lg-6 order-lg-2 col-md-12 order-md-3 col-sm-12 bf-col">
+        <div class="card h-100">
+            <div class="card-body">
+                <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+                <ul class="list-group">
+                    @foreach (var zoneObject in ZoneCollection.GetZoneObjects)
+                    {
+                        <li class="list-group-item">
+
+                            <CascadingValue Value="this">
+                                <ZoneFormComponent CurrentZoneObject="@zoneObject"></ZoneFormComponent>
+                            </CascadingValue>
+                            <span>
+                                <button @onclick="() => Delete(zoneObject)">X</button>
+                            </span>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@code{
+    public ZoneCollection ZoneCollection = new ZoneCollection();
+
+    int RowCount = 1;
+
+    private void IncrementCount()
+    {
+        ZoneCollection.AddOrEdit(new ZoneObject());
+    }
+
+    private void Delete(ZoneObject zoneObject)
+    {
+        var result = ZoneCollection.Delete(zoneObject);
+        if (result) toastService.ShowSuccess("Successfully deleted!");
+        else toastService.ShowError("Data not found");
+        StateHasChanged();
+    }
+
+    private void DecrementCount()
+    {
+        if (RowCount > 1) RowCount--;
+    }
+
+}
